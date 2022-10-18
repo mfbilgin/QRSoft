@@ -11,7 +11,7 @@ namespace Business.Abstract
         IResult Delete(Category category);
         IDataResult<List<Category>> GetByCompanyCode(string code);
         IDataResult<Category> GetById(int id);
-        IDataResult<Category> GetByCategoryName(string categoryName);
+        IDataResult<Category> GetByCategoryName(string categoryName,string companyCode);
         IResult CategoryNameNotBeDuplicated(string name);
         IResult CompanyCodeWillBeExistsWhenRequested(string code);
 

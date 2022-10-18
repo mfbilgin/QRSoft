@@ -9,6 +9,7 @@ namespace Business.Abstract
     {
         IResult Upload(IFormFile file,int productId);
         IResult Add(ProductImage productImage);
+        IResult Delete(ProductImage productImage);
         IResult Update(IFormFile file,int imageId);
         IResult Destroy(int imageId);
         

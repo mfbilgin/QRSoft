@@ -28,7 +28,8 @@
         public const string ProductAdded = "Product added successfully.";
         public const string ProductUpdated = "Product updated successfully.";
         public const string ProductDeleted = "Product deleted successfully.";
-        public const string ProductNotFound = "Product not found.";
+        public const string ProductNotFound = "Image not found.";
+        public const string ImageNotFound = "Product not found.";
         public const string ProductExists = "Product exists.";
         public const string ProductNotHaveImage = "Product not have image.";
     }

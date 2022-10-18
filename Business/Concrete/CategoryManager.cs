@@ -60,9 +60,9 @@ namespace Business.Concrete
             return new SuccessDataResult<Category>(_categoryDal.Get(c => c.Id == id));
         }
         [CacheAspect]
-        public IDataResult<Category> GetByCategoryName(string categoryName)
+        public IDataResult<Category> GetByCategoryName(string categoryName,string companyCode)
         {
-            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryName == categoryName));
+            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryName == categoryName && c.CompanyCode == companyCode));
         }
         
         public IResult CategoryNameNotBeDuplicated(string name)

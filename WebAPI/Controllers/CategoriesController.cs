@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getByCategoryName")]
-        public IActionResult GetByCategoryName([FromQuery] string name)
+        public IActionResult GetByCategoryName([FromQuery] string name,[FromQuery] string companyCode)
         {
-            var result = _categoryService.GetByCategoryName(name);
+            var result = _categoryService.GetByCategoryName(name,companyCode);
             if (result.Success) return Ok(result);
             return BadRequest(result);
         }
