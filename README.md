@@ -7,4 +7,4 @@
 - [Core](https://github.com/mfbilgin42/QRSoft/tree/master/Core) : Genel tüm projelerde kullanım için uygun, temel alt yapıyı oluituran sınıf ve methodları içerir.
 - [DataAccess](https://github.com/mfbilgin42/QRSoft/tree/master/DataAccess) : Veri tabanı CRUD operasyonlarını gerçekleştirir. Abstract klasörü interfaceleri,Concrete klasörü classları tutar.
 - [Entities](https://github.com/mfbilgin42/QRSoft/tree/master/Entities) : Bu katman veritabanı tablosundaki verileri tutar.
-- [WebAPI]() : Yazılımın dış dünyaya açıldığı katmandır. 
+- [WebAPI](https://github.com/mfbilgin42/QRSoft/tree/master/WebAPI) : Yazılımın dış dünyaya açıldığı katmandır. 
