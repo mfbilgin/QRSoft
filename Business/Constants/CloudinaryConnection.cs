@@ -1,5 +1,6 @@
 ﻿namespace Business.Constants
 {
+    //Cloudinary servisi için gerekli bağlantı bilgilerini içerisinde bulundurur.
     public static class CloudinaryConnection
     {
         public const string ApiKey = "424215384583995";

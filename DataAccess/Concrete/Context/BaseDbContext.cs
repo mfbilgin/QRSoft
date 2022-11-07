@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.Context
 {
+    //Veri tabanı bağlantısının yapıldığı sınıftır.
     public class BaseDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=MFBILGIN\MFBILGIN;Database=QRSoftDatabase;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(connectionString:@"Server=MFBILGIN\MFBILGIN;Database=QRSoftDatabase;Trusted_Connection=true");
         }
 
         public DbSet<CompanyOperationClaim> CompanyOperationClaims { get; set; }

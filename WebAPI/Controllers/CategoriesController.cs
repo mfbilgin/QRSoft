@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
             var codeResult = _categoryService.CompanyCodeWillBeExistsWhenRequested(category.CompanyCode);
             if (!codeResult.Success) return BadRequest(codeResult);
             
-            var nameResult = _categoryService.CategoryNameNotBeDuplicated(category.CategoryName);
+            var nameResult = _categoryService.CategoryNameNotBeDuplicated(category.CategoryName,category.CompanyCode);
             if (!nameResult.Success) return BadRequest(nameResult);
             
             var result = _categoryService.Add(category);
@@ -29,12 +29,12 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("update")]
-        public IActionResult Update([FromBody] Category category)
+        public IActionResult Update([FromBody] Category category,[FromQuery] string companyName)
         {
             var codeResult = _categoryService.CompanyCodeWillBeExistsWhenRequested(category.CompanyCode);
             if (!codeResult.Success) return BadRequest(codeResult);
             
-            var nameResult = _categoryService.CategoryNameNotBeDuplicated(category.CategoryName);
+            var nameResult = _categoryService.CategoryNameNotBeDuplicated(category.CategoryName,companyName);
             if (!nameResult.Success) return BadRequest(nameResult);
             
             var result = _categoryService.Update(category);
@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
         [HttpGet("getByCategoryName")]
         public IActionResult GetByCategoryName([FromQuery] string name,[FromQuery] string companyCode)
         {
-            var result = _categoryService.GetByCategoryName(name,companyCode);
+            var result = _categoryService.GetByCategoryNameAndCompanyCode(name,companyCode);
             if (result.Success) return Ok(result);
             return BadRequest(result);
         }

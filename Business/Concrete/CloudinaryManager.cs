@@ -7,6 +7,7 @@ using Core.Utilities.Results;
 
 namespace Business.Concrete
 {
+    //Cloudinary bir bulut resim tutma servisidir. Bu class ilgili bağlantıları yapan methodları bulundurur.
     public class CloudinaryManager : ICloudinaryService
     {
         public IResult Upload(string imagePath)

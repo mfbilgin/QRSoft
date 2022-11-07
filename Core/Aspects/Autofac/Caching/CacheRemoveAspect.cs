@@ -8,6 +8,7 @@ using Core.Utilities.IoC;
 using Microsoft.Extensions.DependencyInjection;
 namespace Core.Aspects.Autofac.Caching
 {
+    // Güncellenen verileri getirmek için ilgili verileri ön bellekten temizler.
     public class CacheRemoveAspect : MethodInterception
     {
         private string _pattern;

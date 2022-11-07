@@ -7,6 +7,7 @@ using Entities.DTOs;
 namespace Business.Abstract
 {
 
+    //Auth Managerdaki methodaların soyutlarını tutar
     public interface IAuthService
     {
         IDataResult<Company> Register(CompanyForRegisterDto companyForRegisterDto);

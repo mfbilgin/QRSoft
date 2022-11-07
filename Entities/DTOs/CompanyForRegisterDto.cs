@@ -2,6 +2,7 @@
 
 namespace Entities.DTOs
 {
+    //Register için kullanıcıdan alınan bilgileri içerir. Veri tabanıyla bağlantılı değildir.
     public class CompanyForRegisterDto : IDto
     {
         public string CompanyName { get; set; }

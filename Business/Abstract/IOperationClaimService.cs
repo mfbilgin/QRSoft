@@ -3,6 +3,7 @@ using Core.Utilities.Results;
 
 namespace Business.Abstract
 {
+    //Operation Claim Managerdaki methodaların soyutlarını tutar
     public interface IOperationClaimService
     {
         IDataResult<OperationClaim> Add(OperationClaim operationClaim);

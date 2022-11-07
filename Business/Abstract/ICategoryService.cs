@@ -4,6 +4,8 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
+        
+    //Category Managerdaki methodaların soyutlarını tutar
     public interface ICategoryService
     {
         IResult Add(Category category);
@@ -11,8 +13,8 @@ namespace Business.Abstract
         IResult Delete(Category category);
         IDataResult<List<Category>> GetByCompanyCode(string code);
         IDataResult<Category> GetById(int id);
-        IDataResult<Category> GetByCategoryName(string categoryName,string companyCode);
-        IResult CategoryNameNotBeDuplicated(string name);
+        IDataResult<Category> GetByCategoryNameAndCompanyCode(string categoryName,string companyCode);
+        IResult CategoryNameNotBeDuplicated(string name,string companyCode);
         IResult CompanyCodeWillBeExistsWhenRequested(string code);
 
 

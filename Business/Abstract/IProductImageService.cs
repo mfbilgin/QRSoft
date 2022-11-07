@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Business.Abstract
 {
+    //Product Image Managerdaki methodaların soyutlarını tutar
     public interface IProductImageService
     {
         IResult Upload(IFormFile file,int productId);

@@ -2,6 +2,7 @@
 
 namespace Entities.Concrete
 {
+    //ürünlerin kategorileri
     public class Category : IEntity
     {
         public int Id { get; set; }

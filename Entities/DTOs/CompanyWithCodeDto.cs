@@ -2,6 +2,7 @@
 
 namespace Entities.DTOs
 {
+    //Şirketleri kodlarıyla birlikte döndürmek için kullanılan DTO(data transfer object)dur.
     public class CompanyWithCodeDto : IDto
     {
         public int Id { get; set; }

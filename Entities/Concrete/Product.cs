@@ -3,6 +3,7 @@
 namespace Entities.Concrete
 {
 
+    //Ürünler
     public class Product : IEntity
     {
         public int Id { get; set; }

@@ -9,6 +9,7 @@ using Core.Entities.Abstract;
 
 namespace Core.DataAccess.EntityFramework
 {
+    //Generic yapıda veri tabanı CRUD operasyonlarını yapar.
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()

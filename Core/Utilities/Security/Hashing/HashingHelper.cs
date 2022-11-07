@@ -6,6 +6,7 @@ namespace Core.Utilities.Security.Hashing
 {
     public class HashingHelper
     {
+        //Password'u veri tabanında açıkca tutmamak için SHA512 algoritması ile şifreleyen methodtur.
         public static void CreatePasswordHash(
             string password,
             out byte[] passwordHash,
@@ -17,7 +18,7 @@ namespace Core.Utilities.Security.Hashing
                 passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
         }
-
+        //Gelen password'un SHA512 şifrelemesine uygunluğunu kontrol eder.
         public static bool VerifyPasswordHash(
              string password,
              byte[] passwordHash,

@@ -21,6 +21,7 @@ namespace Core.Utilities.Security.Jwt
             Configuration = configuration;
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
         }
+        //Şirket için JWT(JSON Web Token Oluşturur. Bkz. jwt.io)
         public AccessToken CreateToken(Company company, List<OperationClaim> operationClaims)
         {
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
@@ -38,6 +39,7 @@ namespace Core.Utilities.Security.Jwt
 
         }
 
+        //Token opionsda yer alan bilgileri kullanarak bir token oluşturur.
         public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, Company company,
             SigningCredentials signingCredentials, List<OperationClaim> operationClaims)
         {
@@ -51,6 +53,7 @@ namespace Core.Utilities.Security.Jwt
             );
             return jwt;
         }
+                //Token'a ilgili Claim'i(rol) ekler.
                 private IEnumerable<Claim> SetClaims(Company company, List<OperationClaim> operationClaims)
                 {
                     var claims = new List<Claim>();

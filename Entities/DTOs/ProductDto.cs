@@ -3,6 +3,7 @@ using Entities.Concrete;
 
 namespace Entities.DTOs
 {
+    //Ürünleri resimleri ile birlikte getirmek için kullanılan DTO(data transfer object)dur.
     public class ProductDto : IDto
     {
         public int Id { get; set; }

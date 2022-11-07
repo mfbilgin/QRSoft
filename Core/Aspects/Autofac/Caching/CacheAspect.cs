@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Aspects.Autofac.Caching
 {
+    //Bu aspect fazla internet kullanımını engellemek için getirilen verileri ön belleğe kaydeder.
     public class CacheAspect : MethodInterception
     {
         private int _duration;

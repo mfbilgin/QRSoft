@@ -10,7 +10,7 @@
         public const string CodeNotExists = "This company code is not exists.";
         public const string CompanyAdded = "Company added successfully.";
         public const string CompanyUpdated = "Company infos updated successfully.";
-        public const string CompanyBlocked = "Company blocked.";
+        public const string CompanyDeleted = "Company deleted successfully.";
         public const string PasswordError = "Password incorrect.";
         public const string PasswordChanged = "Password changed.";
         public const string CompanyWasBlocked = "This company was blocked.";

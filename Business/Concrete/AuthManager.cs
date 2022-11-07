@@ -24,10 +24,11 @@ namespace Business.Concrete
             _operationClaimService = operationClaimService;
             _companyOperationClaimService = companyOperationClaimService;
         }
-
+        
         public IDataResult<Company> Register(CompanyForRegisterDto companyForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;
+            
             HashingHelper.CreatePasswordHash(companyForRegisterDto.Password, out passwordHash, out passwordSalt);
             var company = new Company()
             {

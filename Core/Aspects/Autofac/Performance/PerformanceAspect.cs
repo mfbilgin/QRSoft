@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Aspects.Autofac.Performance
 {
+    //Belirlenen methodun çalışması istenilen sürenin üzerinde sürerse Debug ile bilgilendirir.
     public class PerformanceAspect : MethodInterception
     {
         private int _interval;

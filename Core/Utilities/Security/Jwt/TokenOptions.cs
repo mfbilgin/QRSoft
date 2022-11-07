@@ -1,5 +1,6 @@
 ﻿namespace Core.Utilities.Security.Jwt
 {
+    //JWT için gereli field'ları içinde bulundurur.
     public class TokenOptions
     {
         public string Audience { get; set; }

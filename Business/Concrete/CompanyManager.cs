@@ -8,6 +8,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities.Concrete;
 using Entities.DTOs;
 
 namespace Business.Concrete
@@ -15,13 +16,15 @@ namespace Business.Concrete
     public class CompanyManager : ICompanyService
     {
         private readonly ICompanyDal _companyDal;
-
-        public CompanyManager(ICompanyDal companyDal)
+        private readonly ICategoryDal _categoryDal;
+        private readonly ICompanyCodeDal _companyCodeDal;
+        public CompanyManager(ICompanyDal companyDal, ICompanyCodeDal companyCodeDal, ICategoryDal categoryDal)
         {
             _companyDal = companyDal;
+            _companyCodeDal = companyCodeDal;
+            _categoryDal = categoryDal;
         }
-
-        [SecuredOperation("Admin")]
+        
         [CacheAspect]
         public IDataResult<List<Company>> GetAll()
         {
@@ -82,9 +85,11 @@ namespace Business.Concrete
         [SecuredOperation("Company")]
         public IResult Delete(Company company)
         {
-            company.Status = false;
-            _companyDal.Update(company);
-            return new SuccessResult(Messages.CompanyBlocked);
+           _companyDal.Delete(company);
+           CompanyCode companyCode = _companyCodeDal.Get(code => code.CompanyId == company.Id);
+           _categoryDal.Delete(_categoryDal.Get(c=> c.CompanyCode == companyCode.Code));
+           _companyCodeDal.Delete(companyCode);
+           return new SuccessResult(Messages.CompanyDeleted);
         }
         
         public IDataResult<List<OperationClaim>> GetClaimById(int companyId)

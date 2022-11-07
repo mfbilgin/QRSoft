@@ -5,6 +5,7 @@ using Entities.DTOs;
 
 namespace Business.Abstract
 {
+    //Product Managerdaki methodaların soyutlarını tutar
     public interface IProductService
     {
         IResult Add(Product product);

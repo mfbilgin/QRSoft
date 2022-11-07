@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.FileHelper;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -24,8 +25,14 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Company")]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Upload(IFormFile file, int productId)
         {
+            var image = _productImageDal.Get(pi => pi.ProductId == productId);
+            if (image != null)
+            {
+                Destroy(image.Id);
+            }
             string filePath = FileHelper.Add(file).Message;
             var uploadResult = _cloudinaryService.Upload(filePath);
             string uploadedImagePath = uploadResult.Message;
@@ -39,13 +46,15 @@ namespace Business.Concrete
             _productImageDal.Add(productImage);
             return new SuccessResult(uploadedImagePath);
         }
-
+        
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(ProductImage productImage)
         {
             _productImageDal.Add(productImage);
             return new SuccessResult();
         }
-
+        
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Delete(ProductImage productImage)
         {
             _productImageDal.Delete(productImage);
@@ -53,6 +62,7 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Company")]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Update(IFormFile file, int imageId)
         {
             ProductImage productImage = _productImageDal.Get(pi => pi.Id == imageId);
@@ -65,6 +75,7 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Company")]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Destroy(int imageId)
         {
             ProductImage productImage = _productImageDal.Get(pi => pi.Id == imageId);
@@ -80,6 +91,7 @@ namespace Business.Concrete
             return result;
         }
 
+       
         public IDataResult<ProductImage> GetByProductId(int productId)
         {
             

@@ -10,6 +10,7 @@ using DataAccess.Concrete;
 
 namespace Business.DependencyResolver.Autofac
 {
+    //API'ye hangi interfacein hangi class ile bağlandığını bildirir.
     public class AutofacBusinessModule : Module
     {
         protected override void Load(ContainerBuilder builder)

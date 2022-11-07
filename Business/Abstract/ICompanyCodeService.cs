@@ -3,6 +3,7 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
+    //Company Code Managerdaki methodaların soyutlarını tutar
     public interface ICompanyCodeService
     {
         IDataResult<CompanyCode> Add(int companyId);

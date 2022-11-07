@@ -6,6 +6,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //Authorization işlemlerinin gerçekleştirildiği API sınıfıdır.
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;

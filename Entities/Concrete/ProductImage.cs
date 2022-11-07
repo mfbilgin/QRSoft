@@ -3,6 +3,7 @@ using Core.Entities.Abstract;
 
 namespace Entities.Concrete
 {
+    //Ürün resimleri sınıfı
     public class ProductImage : IEntity
     {
         public int Id { get; set; }
